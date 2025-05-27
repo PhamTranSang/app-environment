@@ -1,0 +1,14 @@
+version: '3.9' # version of docker compose file
+
+services: # The services will be implementation.
+  db: # Service name, representation for a container. In this case, it's a PostgresQL.
+    image: postgres:16 # The version of container.
+    container_name: postgresql-16 # Container name.
+    restart: unless-stopped # Automatic restart if container stop or error, unless user stop container.
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init/01-init-schema.sql:/docker-entrypoint-initdb.d/01-init-schema.sql
