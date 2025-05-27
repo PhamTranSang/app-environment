@@ -15,6 +15,8 @@
     <name>environment</name>
     <description>environment</description>
 
+    <packaging>jar</packaging>
+
     <properties>
         <java.version>21</java.version>
         <buildDir>${project.basedir}/.tmp.build/target</buildDir>
@@ -64,6 +66,8 @@
                             <artifactId>lombok</artifactId>
                         </path>
                     </annotationProcessorPaths>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
